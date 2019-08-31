@@ -6,7 +6,7 @@
     "apollo-boost": "0.4.3",
     "apollo-link-ws": "1.0.18",
     "bootstrap": "4.3.1",
-    "graphql": "14.4.2",
+    "graphql": "14.5.4",
     "react": "16.8.6",
     "react-apollo": "2.5.8",
     "react-dom": "16.8.6",
