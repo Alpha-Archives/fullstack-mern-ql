@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import { Card, CardHeader, CardFooter, CardBody } from 'reactstrap'
+import { Card, CardHeader, CardFooter, CardBody } from "reactstrap";
 
 const Post = ({
   data: {
@@ -11,14 +11,12 @@ const Post = ({
   }
 }) => {
   return (
-    <Card style={{ margin: '30px auto', width: '400px' }}>
+    <Card style={{ margin: "30px auto", width: "400px" }}>
       <CardHeader>{title}</CardHeader>
-      <CardBody>
-        {body || <p style={{ opacity: 0.5 }}>No body for this post...</p>}
-      </CardBody>
+      <CardBody>{body || <p style={{ opacity: 0.5 }}>No body for this post...</p>}</CardBody>
       <CardFooter>{`${name} - published: ${published}`}</CardFooter>
     </Card>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
