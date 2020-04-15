@@ -9,7 +9,7 @@ import Comment from "./resolvers/Comment";
 
 const pubsub = new PubSub();
 
-const server = new GraphQLServer({
+const app = new GraphQLServer({
   typeDefs: "./src/schema.graphql",
   resolvers: {
     Query,
@@ -17,14 +17,12 @@ const server = new GraphQLServer({
     Subscription,
     User,
     Post,
-    Comment
+    Comment,
   },
   context: {
     db,
-    pubsub
-  }
+    pubsub,
+  },
 });
 
-server.start({ port: process.env.PORT | 4000 }, () => {
-  console.log(`The server is up on port ${process.env.PORT | 4000}!`);
-});
+export default app;
