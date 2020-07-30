@@ -9,8 +9,7 @@ Modern GraphQl with React
 - Express.js
 - React.js
 - GraphQL
-- Other goofies
-
+- Other goodies
 
 
 ## License
