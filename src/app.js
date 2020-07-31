@@ -1,4 +1,8 @@
 import { GraphQLServer, PubSub } from "graphql-yoga";
+import path from 'path';
+import serveStatic from 'serve-static';
+
+
 import db from "./db";
 import Query from "./resolvers/Query";
 import Mutation from "./resolvers/Mutation";
@@ -9,7 +13,8 @@ import Comment from "./resolvers/Comment";
 
 const pubsub = new PubSub();
 
-const server = new GraphQLServer({
+const app = new GraphQLServer({
+  endpoint: '/graphqli',
   typeDefs: "./src/schema.graphql",
   resolvers: {
     Query,
@@ -17,14 +22,19 @@ const server = new GraphQLServer({
     Subscription,
     User,
     Post,
-    Comment
+    Comment,
   },
   context: {
     db,
-    pubsub
-  }
+    pubsub,
+  },
 });
 
-server.start({ port: process.env.PORT | 4000 }, () => {
-  console.log(`The server is up on port ${process.env.PORT | 4000}!`);
-});
+// app.express.use('/', app.express.static(path.resolve('./client/build/')))
+
+app.express.use('/',serveStatic(path.resolve('./client/build/'), { 'index': ['default.html'] }))
+// app.express.get("/", (req, res) => {
+//   return res.sendFile(path.resolve('./client/build/index.html'));
+// });
+
+export default app;
