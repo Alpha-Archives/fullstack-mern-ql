@@ -13,6 +13,8 @@ import Comment from "./resolvers/Comment";
 
 const pubsub = new PubSub();
 
+
+
 const app = new GraphQLServer({
   endpoint: '/graphqli',
   typeDefs: "./src/schema.graphql",
@@ -30,9 +32,17 @@ const app = new GraphQLServer({
   },
 });
 
+
+// app.express.get('/', (req, res, next) => {
+//   // here you can use your way to get the path dir ..  
+//   const pathDir = path.join(__dirname, `../client/build/`);
+
+//   res.sendFile(pathDir);
+// }); // ✔️🚀
+
 // app.express.use('/', app.express.static(path.resolve('./client/build/')))
 
-app.express.use('/',serveStatic(path.resolve('./client/build/'), { 'index': ['default.html'] }))
+// app.express.use('/',serveStatic(path.resolve('./client/build/'), { 'index': ['default.html'] }))
 // app.express.get("/", (req, res) => {
 //   return res.sendFile(path.resolve('./client/build/index.html'));
 // });
