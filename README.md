@@ -1,16 +1,17 @@
-# GraphQL
+# Inzari Systems
 
+Built with Modern Technologies.
 
-Modern GraphQl with React
-
-
-## Feature
+## Technologies behind
 
 - Express.js
 - React.js
-- GraphQL
+- Apollo GraphQL
 - Other goodies
 
+## Author
+
+- [Alpha Olomi](@alphaolomi)
 
 ## License
 
